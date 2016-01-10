@@ -10,20 +10,16 @@ $wyniki = mysql_query('select * from tydzien');
 while ($tresc = mysql_fetch_assoc($wyniki)){
 echo ($tresc ['numer']. ' ' .$tresc['dzien'].'<br>');
 }
-
 echo "<br>";
-
 $wyniki = mysql_query('select * from cwiczenia');
 while ($txt1 = mysql_fetch_assoc($wyniki))
 {
  echo ($txt1 ['nazwa']. ' '.$txt1  ['powtorzenia']. ' '.$txt1 ['kalorie']. ' '.$txt1 ['data']. ' '.$txt1 ['dzien_tyg']. '<br>');
 }
-
 if (!$wyniki) {
 echo 'Błąd bazy danych!<br />mysql_error()';
 return false;
 }
-
 echo ("<br> cwiczenia wykonane od 2016-01-05 <br>");
 $w =mysql_query("select * from cwiczenia where data >= '2016-01-05'");
 while ($w1 = mysql_fetch_assoc($w))
