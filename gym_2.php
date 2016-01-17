@@ -5,7 +5,7 @@ $okres = $_POST['okres'];
 $dni = $_POST['dni'];
 
 
-$q = mysql_connect('localhost', 'Azrael','sarycja87###net') or die ("Awaria serwera");
+$q = mysql_connect('localhost', 'nick','**************') or die ("Awaria serwera");
 $q = mysql_select_db('trening') or die ("Baza nie odpowiada");
 
 $wynik = mysql_query('select * from cwiczenia');
