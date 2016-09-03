@@ -1,0 +1,41 @@
+//ptrstr.cpp -- wskaźniki  i łańcuchy znakowe
+
+#include <iostream>
+#include <string>
+#include <string.h>
+#include <cstring>	// deklaracje strlen(), strcpy()
+
+int main()
+{
+	
+	using namespace std;
+	char animal[40] = "niedzwiedz"; // zmienna animal zawiera łańcuch niedźwiedź
+	const char * bird = "myszolow"; // stała bird zawiera adres łańcucha
+	char * ps;			// niezidentyfikowane
+
+	cout << animal << " oraz " << bird << "\n"; // wyswietla miska i  ptaka
+	//cout << ps << "\n"; // mozezawiesic program moze pokazac smieci
+
+	cout << "podaj rodzaj zwierzecia: ";
+	cin >> animal;		//ok ile < 20 znakow
+	// cin >> ps; -- zbyt straszne zeby probwać -- ps nie wskazuje zaalokowanje pamieci
+
+	ps = animal;  // ustawienei ps na łańcuch
+	cout << ps << " i!\n";		// to samo co animal
+	cout << "Przed uzyciem strcpy_s():\n";
+	cout << animal << " pod adresem " << (int *)animal << endl;
+	cout << ps << " pod adresem " <<  (int *)ps << endl;
+
+	std::string;
+	ps = new char[/*strlen(animal) + 1*/41];	//alokuje nowa pamięć
+	strcpy(ps, animal);		//kopiuje  lancuch w nowe miejsce
+	cout << "Po uzyciu strcpy_s(): \n";
+	cout << animal << " pod adresem " << (int *)animal << endl;
+	cout << ps << " pod adresem " << (int *)ps << endl;
+	delete[] ps;
+	cin.get();
+	cin.get();
+	return 0;
+
+
+}
